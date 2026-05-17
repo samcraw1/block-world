@@ -16,6 +16,7 @@ public class BlockWorldGame extends JFrame {
     private final World world;
     private final Player player;
     private final WorldRenderer renderer;
+    private MusicPlayer bgm;
 
 
     // ╔══════════════════════════════════════════════════════╗
@@ -42,6 +43,10 @@ public class BlockWorldGame extends JFrame {
         add(renderer);
         pack();
         setLocationRelativeTo(null);
+
+        bgm = new MusicPlayer("drake-views.wav");
+        bgm.loop();
+        
     }
 
 

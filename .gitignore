@@ -1,3 +1,5 @@
 *.class
 *.jar
+*.wav
+*.mp3
 .DS_Store

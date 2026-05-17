@@ -23,16 +23,21 @@ WASD to move. Walk on grass freely. Stone and water block movement.
 | `World.java` | 2D grid (`Block[][]`) holding any block subclass | Polymorphism (storage) |
 | `Player.java` | Position + name data class | Encapsulation |
 | `WorldRenderer.java` | JPanel painting grid + player | Composition + custom Swing rendering |
-| `BlockWorldGame.java` | JFrame launcher + WASD KeyListener | Composition + event handling |
+| `BlockWorldGame.java` | JFrame launcher + WASD KeyListener + BGM | Composition + event handling |
+| `MusicPlayer.java` | Looping background audio (reused from my music-player project) | Composition across projects |
 
 The `target.onStep()` call in `BlockWorldGame.handleKey()` is polymorphism in action — game code calls it on any `Block` and Java dispatches to the correct subclass implementation. No `instanceof` checks, no type switching.
 
 ## Run it
 
+The audio file isn't committed (binaries kept out of git). Drop any `.wav` file in this folder named `drake-views.wav` (or update the filename in `BlockWorldGame.java`), then:
+
 ```bash
 javac *.java
 java BlockWorldGame
 ```
+
+Convert any mp3 to wav with `afconvert` (Mac built-in) or any online converter.
 
 ## Tech
 
