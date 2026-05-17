@@ -17,23 +17,29 @@ private final Block[][] grid;
     // ║  Called once from the constructor.                   ║
     // ╚══════════════════════════════════════════════════════╝
     private void buildDefaultWorld() {
-        // Fill every cell with grass (nested loop visits each cell once)
+        // Fill every cell with snow (nested loop visits each cell once)
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                grid[x][y] = new GrassBlock();
+                grid[x][y] = new SnowBlock();
             }
         }
 
-        // Stone wall along the top edge (y = 0)
+        // Stone wall along the top edge (mountain ridge)
         for (int x = 0; x < width; x++) {
             grid[x][0] = new StoneBlock();
         }
 
-        // Small water pond near the top-left
-        grid[5][5] = new WaterBlock();
-        grid[6][5] = new WaterBlock();
-        grid[5][6] = new WaterBlock();
-        grid[6][6] = new WaterBlock();
+        // Frozen pond (was water before)
+        grid[5][5] = new IceBlock();
+        grid[6][5] = new IceBlock();
+        grid[5][6] = new IceBlock();
+        grid[6][6] = new IceBlock();
+
+        // Scattered ice patches for variety
+        grid[12][8]  = new IceBlock();
+        grid[13][8]  = new IceBlock();
+        grid[15][10] = new IceBlock();
+        grid[3][12]  = new IceBlock();
     }
 
 
